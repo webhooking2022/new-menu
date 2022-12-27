@@ -1,0 +1,138 @@
+return function()
+    local rss = Instance.new("ScreenGui")
+    local SCHEAT = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local TextLabel = Instance.new("TextLabel")
+    local shadowHolder = Instance.new("Frame")
+    local umbraShadow = Instance.new("ImageLabel")
+    local penumbraShadow = Instance.new("ImageLabel")
+    local ambientShadow = Instance.new("ImageLabel")
+    
+    local original = UDim2.new(0.259917915, 0, 0.123456791, 0)
+    local zero = UDim2.new(0,0,0,0)
+    
+    
+    rss.Name = ".rss"
+    rss.Parent = game.CoreGui
+    rss.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    
+    SCHEAT.Name = "S' CHEAT"
+    SCHEAT.Parent = rss
+    SCHEAT.AnchorPoint = Vector2.new(0.5, 0.5)
+    SCHEAT.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+    SCHEAT.Position = UDim2.new(0.5, 0, 0.49999997, 0)
+    SCHEAT.Size = zero
+    
+    UICorner.Parent = SCHEAT
+    
+    TextLabel.Parent = SCHEAT
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.BorderSizePixel = 0
+    TextLabel.Size = UDim2.new(1, 0, 1, 0)
+    TextLabel.Font = Enum.Font.Antique
+    TextLabel.Text = "S' CHEAT"
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextScaled = true
+    TextLabel.TextSize = 14.000
+    TextLabel.TextTransparency = 1.000
+    TextLabel.TextWrapped = true
+    
+    shadowHolder.Name = "shadowHolder"
+    shadowHolder.Parent = SCHEAT
+    shadowHolder.BackgroundTransparency = 1.000
+    shadowHolder.Size = UDim2.new(1, 0, 1, 0)
+    shadowHolder.ZIndex = 0
+    
+    umbraShadow.Name = "umbraShadow"
+    umbraShadow.Parent = shadowHolder
+    umbraShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    umbraShadow.BackgroundTransparency = 1.000
+    umbraShadow.Position = UDim2.new(0.5, 0, 0.519999981, 0)
+    umbraShadow.Size = UDim2.new(1.0105263, 0, 1.03999996, 0)
+    umbraShadow.ZIndex = 0
+    umbraShadow.Image = "rbxassetid://1316045217"
+    umbraShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    umbraShadow.ImageTransparency = 0.860
+    umbraShadow.ScaleType = Enum.ScaleType.Slice
+    umbraShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+    
+    penumbraShadow.Name = "penumbraShadow"
+    penumbraShadow.Parent = shadowHolder
+    penumbraShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    penumbraShadow.BackgroundTransparency = 1.000
+    penumbraShadow.Position = UDim2.new(0.5, 0, 0.519999981, 0)
+    penumbraShadow.Size = UDim2.new(1.0105263, 0, 1.03999996, 0)
+    penumbraShadow.ZIndex = 0
+    penumbraShadow.Image = "rbxassetid://1316045217"
+    penumbraShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    penumbraShadow.ImageTransparency = 0.880
+    penumbraShadow.ScaleType = Enum.ScaleType.Slice
+    penumbraShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+    
+    ambientShadow.Name = "ambientShadow"
+    ambientShadow.Parent = shadowHolder
+    ambientShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    ambientShadow.BackgroundTransparency = 1.000
+    ambientShadow.Position = UDim2.new(0.5, 0, 0.519999981, 0)
+    ambientShadow.Size = UDim2.new(1.0105263, 0, 1.03999996, 0)
+    ambientShadow.ZIndex = 0
+    ambientShadow.Image = "rbxassetid://1316045217"
+    ambientShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    ambientShadow.ImageTransparency = 0.880
+    ambientShadow.ScaleType = Enum.ScaleType.Slice
+    ambientShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+    
+    function setVisible()
+        game:GetService("TweenService"):Create(TextLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quart, Enum.EasingDirection.InOut), {TextTransparency = 0}):Play()
+    end
+    function setInvisible()
+        game:GetService("TweenService"):Create(TextLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quart, Enum.EasingDirection.InOut), {TextTransparency = 1}):Play()
+    end
+    
+    function Open()
+        SCHEAT:TweenSize(original, "InOut", "Quart", 1, true)
+    end
+    
+    function Close()
+        SCHEAT:TweenSize(zero, "InOut", "Quart", 1, true)
+        game.debris:AddItem(SCHEAT, 1)
+    end
+    
+    function ChangeText(text)
+        setInvisible()
+        wait(0.4)
+        TextLabel.Text = text 
+        setVisible()
+        wait(0.4)
+    end
+    
+    Open()
+    wait(1)
+    setVisible()
+    wait(2)
+    ChangeText("Checking If your exploit is compatible")
+    wait(2)
+    local compatible = true
+    local items = {
+        {(hookfunction or nil), "hookfunction"},
+        {(hookmetamethod or nil), "metamethod"},
+        {(setfpscap or nil), "setfpscap"},
+        {((writefile and delfile and isfile and isfolder) or nil), "write file functions"},
+        {((syn or KRNL_LOADED) or nil), string.format("krnl or synapse, result: %s detected", (KRNL_LOADED and "krnl") or (syn and "syn"))}
+    }
+    
+    for i,v in pairs(items) do
+        ChangeText(string.format("Checking %s...", v[2]))
+        wait(0.5)
+        if v[1] == nil then
+            compatible = false
+            ChangeText("Your exploit is not compatible.")
+            Close()
+        end
+    end
+    
+    
+    Close()
+    return compatible
+end
