@@ -96,7 +96,7 @@ return function()
     
     function Close()
         SCHEAT:TweenSize(zero, "InOut", "Quart", 1, true)
-        game.debris:AddItem(SCHEAT, 1)
+        game.Debris:AddItem(SCHEAT, 1)
     end
     
     function ChangeText(text)
