@@ -1,0 +1,321 @@
+local library = {}
+
+function library:CreateWindow()
+    pcall(function()
+        for i = 1,100 do
+            game.CoreGui:FindFirstChild("rss2"):Destroy()
+    
+        end
+    end)
+    local rss2 = Instance.new("ScreenGui")
+    local Frame = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local TextLabel = Instance.new("TextLabel")
+    local Close = Instance.new("ImageButton")
+    local FrameTrocarTab = Instance.new("Frame")
+    local UIListLayout = Instance.new("UIListLayout")
+
+    rss2.Name = "rss2"
+    rss2.Parent = game.CoreGui
+    rss2.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+    Frame.Parent = rss2
+    Frame.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+    Frame.Position = UDim2.new(0.0458276346, 0, 0.0790123492, 0)
+    Frame.Size = UDim2.new(0.320562929, 0, 0.271604925, 0)
+    Frame.Active = true
+    Frame.Draggable = true
+    
+    UICorner.Parent = Frame
+
+    TextLabel.Parent = Frame
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.BorderSizePixel = 0
+    TextLabel.Position = UDim2.new(0.0170731712, 0, 0, 0)
+    TextLabel.Size = UDim2.new(0.497560978, 0, 0.118181817, 0)
+    TextLabel.Font = Enum.Font.FredokaOne
+    TextLabel.Text = "S' CHEAT"
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextScaled = true
+    TextLabel.TextSize = 14.000
+    TextLabel.TextWrapped = true
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+    Close.Name = "Close"
+    Close.Parent = Frame
+    Close.BackgroundTransparency = 1.000
+    Close.Position = UDim2.new(0.939024389, 0, 0, 0)
+    Close.Size = UDim2.new(0.0609756112, 0, 0.11363636, 0)
+    Close.ZIndex = 2
+    Close.Image = "rbxassetid://3926305904"
+    Close.ImageRectOffset = Vector2.new(924, 724)
+    Close.ImageRectSize = Vector2.new(36, 36)
+    Close.MouseButton1Down:Connect(function()
+        Frame:TweenPosition(Frame.Position - UDim2.new(0, 0, -1, 0), "InOut", "Quart", 1, true)
+        game.Debris:AddItem(rss2, 1)
+    end)
+
+    FrameTrocarTab.Name = "FrameTrocarTab"
+    FrameTrocarTab.Parent = Frame
+    FrameTrocarTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    FrameTrocarTab.BackgroundTransparency = 1.000
+    FrameTrocarTab.BorderSizePixel = 0
+    FrameTrocarTab.Position = UDim2.new(0.0170731712, 0, 0.118181817, 0)
+    FrameTrocarTab.Size = UDim2.new(0.921951234, 0, 0.0954545438, 0)
+
+    UIListLayout.Parent = FrameTrocarTab
+    UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+    local tab = {}
+
+    local tabs = 0
+    function tab:CreateTab(title)
+        tabs = tabs + 1
+        local TrocarTab = Instance.new("TextButton")
+        local UICorner = Instance.new("UICorner")
+        local Tab = Instance.new("Frame")
+        local IsTab = Instance.new("TextLabel")
+        local UICorner = Instance.new("UICorner")
+        local LugarBotoes = Instance.new("ScrollingFrame")
+        local UICorner_2 = Instance.new("UICorner")
+        local UIListLayout = Instance.new("UIListLayout")
+
+        Tab.Name = "Tab"
+        Tab.Parent = Frame
+        Tab.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+        Tab.Position = UDim2.new(0.0170731712, 0, 0.272727281, 0)
+        Tab.Size = UDim2.new(0.963414609, 0, 0.659090936, 0)
+        Tab.Visible = ((tabs == 1 and true) or false)
+
+        IsTab.Name = "IsTab"
+        IsTab.Parent = Tab
+        IsTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        IsTab.Size = UDim2.new(0.506329119, 0, 0.344827592, 0)
+        IsTab.Visible = false
+        IsTab.Font = Enum.Font.SourceSans
+        IsTab.TextColor3 = Color3.fromRGB(0, 0, 0)
+        IsTab.TextSize = 14.000
+
+        UICorner.Parent = Tab
+
+        LugarBotoes.Name = "LugarBotoes"
+        LugarBotoes.Parent = Tab
+        LugarBotoes.Active = true
+        LugarBotoes.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+        LugarBotoes.BorderSizePixel = 0
+        LugarBotoes.Size = UDim2.new(1, 0, 1, 0)
+        LugarBotoes.ScrollBarThickness = 6
+
+        UICorner_2.Parent = LugarBotoes
+
+        UIListLayout.Parent = LugarBotoes
+        UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        UIListLayout.Padding = UDim.new(0, 5)
+
+        TrocarTab.Name = "TrocarTab"
+        TrocarTab.Parent = FrameTrocarTab
+        TrocarTab.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+        TrocarTab.Size = UDim2.new(0.187830687, 0, 0.857142866, 0)
+        TrocarTab.Font = Enum.Font.Sarpanch
+        TrocarTab.Text = title
+        TrocarTab.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TrocarTab.TextScaled = true
+        TrocarTab.TextSize = 14.000
+        TrocarTab.TextWrapped = true
+
+        UICorner.Parent = TrocarTab
+
+        TrocarTab.MouseButton1Down:Connect(function()
+            for i,v in pairs(Frame:GetChildren()) do
+                if v:FindFirstChild("IsTab") then 
+                    v.Visible = false
+                end
+            end
+            Tab.Visible = true
+        end)
+
+
+        local buttons = {}
+
+        function buttons:CreateButton(title, callback)
+            local item = Instance.new("TextButton")
+            local UICorner = Instance.new("UICorner")
+
+
+            item.Name = "item"
+            item.Parent = LugarBotoes
+            item.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            item.BorderSizePixel = 0
+            item.Size = UDim2.new(0, 378, 0, 27)
+            item.Font = Enum.Font.Sarpanch
+            item.TextColor3 = Color3.fromRGB(255, 255, 255)
+            item.TextSize = 30.000
+            item.TextWrapped = true
+            item.Text = title 
+            item.MouseButton1Down:Connect(function()
+                pcall(callback)
+            end)
+
+            UICorner.Parent = item
+        end
+        function buttons:CreateToggle(title, callback)
+            local toggled = false
+
+            local item = Instance.new("TextButton")
+            local UICorner = Instance.new("UICorner")
+            local vermelhoverde = Instance.new("Frame")
+            local UICorner_2 = Instance.new("UICorner")
+
+
+            item.Name = "item"
+            item.Parent = LugarBotoes
+            item.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            item.BorderSizePixel = 0
+            item.Position = UDim2.new(0, 0, 0.220689654, 0)
+            item.Size = UDim2.new(0, 378, 0, 34)
+            item.Font = Enum.Font.Sarpanch
+            item.TextColor3 = Color3.fromRGB(255, 255, 255)
+            item.TextSize = 30.000
+            item.TextWrapped = true
+            item.TextYAlignment = Enum.TextYAlignment.Top
+            item.Text = title
+
+            UICorner.Parent = item
+
+            vermelhoverde.Name = "vermelhoverde"
+            vermelhoverde.Parent = item
+            vermelhoverde.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+            vermelhoverde.Position = UDim2.new(0.867724836, 0, 0.0882352963, 0)
+            vermelhoverde.Size = UDim2.new(0.100529097, 0, 0.823529422, 0)
+
+            UICorner_2.CornerRadius = UDim.new(0, 15)
+            UICorner_2.Parent = vermelhoverde
+
+            local function toggle(expecif)
+
+                toggled = not toggled
+                if toggled then
+                    game:GetService("TweenService"):Create(vermelhoverde, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(0, 255, 0)}):Play()
+                else
+                    game:GetService("TweenService"):Create(vermelhoverde, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(255, 0, 0)}):Play()
+                end
+
+                pcall(callback, toggled)
+            end
+
+            item.MouseButton1Down:Connect(toggle)
+
+            return toggle
+        end
+        function buttons:CreateBox(title, callback)
+            local item = Instance.new("TextBox")
+            local UICorner = Instance.new("UICorner")
+
+
+            item.Name = "item"
+            item.Parent = LugarBotoes
+            item.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            item.BorderSizePixel = 0
+            item.Position = UDim2.new(0, 0, 0.220689654, 0)
+            item.Size = UDim2.new(0, 378, 0, 34)
+            item.Font = Enum.Font.Sarpanch
+            item.PlaceholderText = string.format("%s [Enter]", title)
+            item.Text = ""
+            item.TextColor3 = Color3.fromRGB(255, 255, 255)
+            item.TextSize = 30.000
+            item.TextWrapped = true
+            item.TextYAlignment = Enum.TextYAlignment.Top
+            item.FocusLost:Connect(function(enter)
+                if enter then
+                    pcall(callback, item.Text)
+                    item.Text = ""
+                end
+            end)
+
+            UICorner.Parent = item
+        end
+        function buttons:CreateSlider(title, minvalue, maxvalue, callback)
+            local item = Instance.new("TextButton")
+            local UICorner = Instance.new("UICorner")
+            local Frame = Instance.new("Frame")
+            local UICorner_2 = Instance.new("UICorner")
+            local meche = Instance.new("Frame")
+            local UICorner_3 = Instance.new("UICorner")
+
+
+            local item2 = item
+            item.Name = "item"
+            item.Parent = LugarBotoes
+            item.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+            item.BorderSizePixel = 0
+            item.Position = UDim2.new(0, 0, 0.220689654, 0)
+            item.Size = UDim2.new(0, 378, 0, 34)
+            item.Font = Enum.Font.Sarpanch
+            item.TextColor3 = Color3.fromRGB(255, 255, 255)
+            item.TextSize = 28.000
+            item.TextWrapped = true
+            item.Text = title
+            item.TextYAlignment = Enum.TextYAlignment.Top
+
+            UICorner.Parent = item
+
+            Frame.Parent = item
+            Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Frame.BorderSizePixel = 0
+            Frame.Position = UDim2.new(0.0560000017, 0, 0.779999971, 0)
+            Frame.Size = UDim2.new(0.888888896, 0, 0.14705883, 0)
+
+            UICorner_2.Parent = Frame
+
+            meche.Name = "meche"
+            meche.Parent = Frame
+            meche.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+            meche.BorderSizePixel = 0
+            meche.Size = UDim2.new(1, 0, 1, 0)
+
+            UICorner_3.Parent = meche
+
+            local button = item2--your button
+        
+            local frame = meche--your frame
+
+            local TextLabel_2 = item2--Your locationtovalue
+            local uis = game:GetService("UserInputService")
+            local mouse = game.Players.LocalPlayer:GetMouse()
+            button.MouseButton1Down:Connect(function()
+                Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 336) * frame.AbsoluteSize.X) + tonumber(minvalue)) or 0
+                pcall(function()
+                    callback(Value)
+                end)
+                frame.Size = UDim2.new(0, math.clamp(mouse.X - frame.AbsolutePosition.X, 0, 318), 1, 0)
+                moveconnection = mouse.Move:Connect(function()
+                    TextLabel_2.Text = string.format("%s %s", title, Value)
+                    Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 336) * frame.AbsoluteSize.X) + tonumber(minvalue))
+                    pcall(function()
+                        callback(Value)
+                    end)
+                    frame.Size = UDim2.new(0, math.clamp(mouse.X - frame.AbsolutePosition.X, 0, 318), 1, 0)
+                end)
+                releaseconnection = uis.InputEnded:Connect(function(Mouse)
+                    if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+                        Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 336) * frame.AbsoluteSize.X) + tonumber(minvalue))
+                        pcall(function()
+                            callback(Value)
+                        end)
+                        frame.Size = UDim2.new(0, math.clamp(mouse.X - frame.AbsolutePosition.X, 0, 336), 1, 0)
+                        moveconnection:Disconnect()
+                        releaseconnection:Disconnect()
+                    end
+                end)
+            end)
+        end
+
+        return buttons
+    end
+
+    return tab
+end
+
+return library
